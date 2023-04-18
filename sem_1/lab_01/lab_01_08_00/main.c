@@ -37,6 +37,7 @@ uint32_t to_right_circle(uint32_t num, int n)
         uint32_t tmp = num & 1;
         num = (num >> 1) | (tmp << (BIT_COUNT - 1));
     }
+    // num = (num >> n) | (num << (BIT_COUNT - n)); - решение в одну строчку
     return num;
 }
 
