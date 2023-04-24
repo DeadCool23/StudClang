@@ -1,0 +1,1 @@
+Min odd element under main diagonal: -5
