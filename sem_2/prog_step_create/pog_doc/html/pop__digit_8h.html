@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Popular digit: Файл pop_digit.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Popular digit
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл pop_digit.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Поиска самого частоповторяющейся цифры  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="matrixio_8h_source.html">matrixio.h</a>&quot;</code><br />
+</div>
+<p><a href="pop__digit_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:abc1ee0bde7a359448bbf91a886d840b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pop__digit_8h.html#abc1ee0bde7a359448bbf91a886d840b6">DIG_COUNT</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:abc1ee0bde7a359448bbf91a886d840b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a55e436b9b32dae8c7cba5de485361096"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pop__digit_8h.html#a55e436b9b32dae8c7cba5de485361096">digit_count</a> (int matrix[][<a class="el" href="matrixio_8h.html#a52037c938e3c1b126c6277da5ca689d0">M</a>], int n, int m, int dig_arr[])</td></tr>
+<tr class="memdesc:a55e436b9b32dae8c7cba5de485361096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция создания частотного массива цифр элементов матрицы  <br /></td></tr>
+<tr class="separator:a55e436b9b32dae8c7cba5de485361096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a007832b867c220faad4a9ed76427a6f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pop__digit_8h.html#a007832b867c220faad4a9ed76427a6f5">get_digits</a> (int dig_arr[], int num)</td></tr>
+<tr class="memdesc:a007832b867c220faad4a9ed76427a6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция записи кол-ва повторений цифр элемента матрицы в частотный массив <br  />
+  <br /></td></tr>
+<tr class="separator:a007832b867c220faad4a9ed76427a6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a12f93e646f0d68bf173a79afbeda1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pop__digit_8h.html#a1a12f93e646f0d68bf173a79afbeda1b">freq_digit</a> (int dig_arr[])</td></tr>
+<tr class="memdesc:a1a12f93e646f0d68bf173a79afbeda1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция ищет в частотном массиве самую частовстречающуюся цифру  <br /></td></tr>
+<tr class="separator:a1a12f93e646f0d68bf173a79afbeda1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Поиска самого частоповторяющейся цифры </p>
+<dl class="section author"><dt>Автор</dt><dd>Нисуев Нису ИУ7-22Б </dd></dl>
+</div><h2 class="groupheader">Макросы</h2>
+<a id="abc1ee0bde7a359448bbf91a886d840b6" name="abc1ee0bde7a359448bbf91a886d840b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1ee0bde7a359448bbf91a886d840b6">&#9670;&#160;</a></span>DIG_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIG_COUNT&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Количество цифр </p>
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a id="a55e436b9b32dae8c7cba5de485361096" name="a55e436b9b32dae8c7cba5de485361096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55e436b9b32dae8c7cba5de485361096">&#9670;&#160;</a></span>digit_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void digit_count </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>matrix</em>[][M], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dig_arr</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция создания частотного массива цифр элементов матрицы </p>
+<p>Индекс элемента соответствует цифре</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">matrix</td><td>- матрица </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n,m</td><td>- размерность матрицы </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dig_arr</td><td>- частотный массив </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1a12f93e646f0d68bf173a79afbeda1b" name="a1a12f93e646f0d68bf173a79afbeda1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a12f93e646f0d68bf173a79afbeda1b">&#9670;&#160;</a></span>freq_digit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int freq_digit </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dig_arr</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция ищет в частотном массиве самую частовстречающуюся цифру </p>
+<p>Если несколько самых чатсовстречающихся цифр, выбирается минимальное</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dig_arr</td><td>- Частотный массив </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>pop_digit - самое частовстречающаяся цифра в матрице </dd></dl>
+
+</div>
+</div>
+<a id="a007832b867c220faad4a9ed76427a6f5" name="a007832b867c220faad4a9ed76427a6f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a007832b867c220faad4a9ed76427a6f5">&#9670;&#160;</a></span>get_digits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void get_digits </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dig_arr</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция записи кол-ва повторений цифр элемента матрицы в частотный массив <br  />
+ </p>
+<p>В частотный массив значения дозаписываются</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">dig_arr</td><td>- Частотный массив </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>- Число(Элемент матрицы) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>
