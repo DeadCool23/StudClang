@@ -23,18 +23,18 @@ int digit_input(int *digit);
 
 /*!
  * Функция добавления строки
- * @param[out] matrix - матрица
+ * @param[in, out] matrix - матрица
  * @param[in] index - индекс строки после которой добавляется новая строка
  * @param[in] n, m - размер матрицы
  */
-void row_add(int matrix[][M], size_t index, size_t n, size_t m);
+void row_add(int matrix[][M], int add_row[], size_t index, size_t n, size_t m);
 
 /*!
- * Функция считает кол-во совпадающих цифр начала и конца элементов строки, с заданной цифрой
+ * Функция считает кол-во элементов строки, у которых первая цифра совпадает с заданной и у которых последняя циффра совпадает с заданной
  * @param[in] num - элемент строки
  * @param[in] digit - заданная цифра
- * @param[in,out] last - кол-во цифр нулевого разряда элементов строки, равных заданной цифре
- * @param[in,out] first - кол-во цифр наибольшего разряда элементов строки, равных заданной цифре
+ * @param[out] last - кол-во цифр нулевого разряда элементов строки, равных заданной цифре
+ * @param[out] first - кол-во цифр наибольшего разряда элементов строки, равных заданной цифре
  */
 void nums_get(int num, int *last, int *first, int digit);
 
@@ -56,5 +56,12 @@ bool row_check(const int row[], size_t m, int digit);
  * @param[in] digit - цифра
  */
 void rows_add(int martix[][M], size_t *n, size_t m, int digit);
+
+/**
+ * Функция формирования ряда
+ * @param[out] row - ряд для формирования
+ * @param[in] m - длина ряда
+ */
+void row_form(int row[], size_t m);
 
 #endif //ROWSADD_H

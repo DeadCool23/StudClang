@@ -34,22 +34,12 @@ int matrix_input(int matrix[][M], size_t *n, size_t *m)
     int err = matrix_size(n, m);
     if (err != OK)
     {
-        if (err == ERR_IO)
-        {
-            return ERR_IO;
-        }
-        if (err == ERR_SIZE)
-        {
-            return ERR_SIZE;
-        }
+        return err;
     }
     err = matrix_els(matrix, *n, *m);
     if (err != OK)
     {
-        if (err == ERR_IO)
-        {
-            return ERR_IO;
-        }
+        return err;
     }
     return OK;
 }

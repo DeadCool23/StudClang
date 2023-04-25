@@ -13,11 +13,11 @@ int row_sum(const int row[], size_t n);
 
 /*!
  * Функция перестановки строк местами
- * @param[out] matrix - матрица
+ * @param[in,out] back_row - 1-ая строка для перестановки
+ * @param[in,out] forth_row - 2-ая строка для перестановки
  * @param[in] m - длина строки
- * @param[in] index - индекс перестанавливаемой строки
  */
-void rows_swap(int matrix[][M], size_t index, size_t m);
+void rows_swap(int back_row[], int forth_row[], size_t m);
 
 /*!
  * \brief Функция сортировки строк матрицы по заданному условию

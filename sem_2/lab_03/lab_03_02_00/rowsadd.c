@@ -14,7 +14,7 @@ int digit_input(int *digit)
     return OK;
 }
 
-void row_add(int matrix[][M], size_t index, size_t n, size_t m)
+void row_add(int matrix[][M], int add_row[], size_t index, size_t n, size_t m)
 {
     for (size_t i = n + 1; i > index; i--)
     {
@@ -24,7 +24,7 @@ void row_add(int matrix[][M], size_t index, size_t n, size_t m)
         }
     }
     for (size_t j = 0; j < m; j++)
-        matrix[index + 1][j] = ADD_NUM;
+        matrix[index + 1][j] = add_row[j];
 }
 
 void nums_get(int num, int *last, int *first, int digit)
@@ -56,15 +56,23 @@ bool row_check(const int row[], size_t m, int digit)
 void rows_add(int martix[][M], size_t *n, size_t m, int digit)
 {
     size_t i = 0;
+    int add_row[M];
+    row_form(add_row, m);
     while (i < *n)
     {
         if (row_check(martix[i], m, digit))
         {
-            row_add(martix, i, *n, m);
+            row_add(martix, add_row, i, *n, m);
             i += 2;
             (*n)++;
         }
         else
             i++;
     }
+}
+
+void row_form(int row[], size_t m)
+{
+    for (size_t i = 0; i < m; i++)
+        row[i] = ADD_NUM;
 }
