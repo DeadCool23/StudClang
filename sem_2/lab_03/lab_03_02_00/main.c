@@ -21,6 +21,11 @@ int main(void)
             printf("Size out of range\n");
             return err;
         }
+        else
+        {
+            printf("Undefined error\n");
+            return err;
+        }
     }
     err = digit_input(&digit);
     if (err != OK)
@@ -33,6 +38,11 @@ int main(void)
         if (err == ERR_RANGE)
         {
             printf("Not a digit\n");
+            return err;
+        }
+        else
+        {
+            printf("Undefined error\n");
             return err;
         }
     }

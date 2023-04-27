@@ -24,18 +24,20 @@ int main(void)
             printf("Size out of range\n");
             return err;
         }
-    }
-
-    err = add_prime(matrix, n, m, prime_arr, &size_arr);
-    if (err != OK)
-    {
-        if (err == ERR_PRIME)
+        else
         {
-            printf("No prime elements\n");
-            return  ERR_PRIME;
+            printf("Undefined error\n");
+            return err;
         }
     }
 
+    add_prime(matrix, n, m, prime_arr, &size_arr);
+    if (size_arr == 0)
+    {
+        printf("No prime elements\n");
+        return ERR_PRIME;
+    }
+    rev_array(prime_arr, size_arr);
     rev_matrix_prime(matrix, n, m, prime_arr);
     matrix_output(matrix, n, m);
     return OK;

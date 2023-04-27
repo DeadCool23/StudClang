@@ -27,6 +27,11 @@ int main(void)
             printf("Matrix should be square");
             return ERR_SQUARE;
         }
+        else
+        {
+            printf("Undefined error\n");
+            return err;
+        }
     }
 
     err = matrix_min_odd(matrix, n, &min_odd);
@@ -36,6 +41,11 @@ int main(void)
         {
             printf("No odd elements\n");
             return  ERR_ODD;
+        }
+        else
+        {
+            printf("Undefined error\n");
+            return err;
         }
     }
 

@@ -25,7 +25,7 @@ void rev_array(int arr[], size_t n)
     }
 }
 
-int add_prime(int matrix[][M], size_t n, size_t m, int array_prime[], size_t *size_arr)
+void add_prime(int matrix[][M], size_t n, size_t m, int array_prime[], size_t *size_arr)
 {
     for (size_t i = 0; i < n; i++)
         for (size_t j = 0; j < m; j++)
@@ -34,11 +34,6 @@ int add_prime(int matrix[][M], size_t n, size_t m, int array_prime[], size_t *si
                 array_prime[*size_arr] = matrix[i][j];
                 (*size_arr)++;
             }
-
-    if (*size_arr == 0)
-        return ERR_PRIME;
-    rev_array(array_prime, *size_arr);
-    return OK;
 }
 
 void rev_matrix_prime(int matrix[][M], size_t n, size_t m, const int array_prime[])

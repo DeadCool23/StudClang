@@ -21,6 +21,11 @@ int main(void)
             printf("Size out of range\n");
             return err;
         }
+        else
+        {
+            printf("Undefined error\n");
+            return err;
+        }
     }
     condarray(cols, matrix, n, m);
     arr_output(cols, m);

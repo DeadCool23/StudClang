@@ -25,9 +25,8 @@ void rev_array(int arr[], size_t n);
  * @param[in] n, m - размерность матрицы
  * @param[out] array_prime - массив простых чисел
  * @param[out] size_arr - длина массива
- * @return Код ошибки
  */
-int add_prime(int matrix[][M], size_t n, size_t m, int array_prime[], size_t *size_arr);
+void add_prime(int matrix[][M], size_t n, size_t m, int array_prime[], size_t *size_arr);
 
 /*!
  * Функция переворота простых элементов матрицы

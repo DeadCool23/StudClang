@@ -20,6 +20,11 @@ int main(void)
             printf("Size out of range\n");
             return err;
         }
+        else
+        {
+            printf("Undefined error\n");
+            return err;
+        }
     }
     bull_step(matrix, n, m);
     matrix_output(matrix, n, m);
