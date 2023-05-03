@@ -21,8 +21,8 @@
 int matrix_size(size_t *n, size_t *m);
 
 /*!
- * Процедура вывода матрицы
- * @param[in] matrix
+ * Процедура вывода квадратной матрицы
+ * @param[in] matrix - матрица
  * @param[in] n, m - размерность матрицы
  */
 void matrix_output(int matrix[N][M], size_t n, size_t m);

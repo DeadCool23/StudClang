@@ -13,4 +13,11 @@
 #define ERR_IO 1
 #define ERR_SIZE 3
 
+/**
+ * @brief Процедура вывода сообщения об ошибке
+ *
+ * @param [in] err_code - код ошибки
+ */
+void err_output(int err_code);
+
 #endif //ERRCODES_H

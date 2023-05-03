@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include "errcodes.h"
 #include "matrixio.h"
-#include "rowssort.h"
+#include "triangle_swap.h"
 
 int main(void)
 {
     size_t n, m;
     int matrix[N][M];
-    int err = matrix_input(matrix, &n, &m);
+
+    int err = square_matrix_input(matrix, &n, &m);
     if (err != OK)
     {
         if (err == ERR_IO)
@@ -20,13 +21,18 @@ int main(void)
             printf("Size out of range\n");
             return err;
         }
+        if (err == ERR_SQUARE)
+        {
+            printf("Matrix should be square");
+            return ERR_SQUARE;
+        }
         else
         {
             printf("Undefined error\n");
             return err;
         }
     }
-    rows_selection_sort(matrix, n, m);
-    matrix_output(matrix, n, m);
+    triangle_up_down(matrix, n);
+    square_matrix_output(matrix, n);
     return OK;
 }

@@ -20,6 +20,14 @@
  */
 int digit_input(int *digit);
 
+/**
+ * @brief Функция присваивания значений одной строки другой
+ *
+ * @param[out] in_row - строка присваивания
+ * @param[in] row_assign - присваеваемая строка
+ * @param[in] n - размер строк
+ */
+void row_assign(int in_row[], const int row_assign[], size_t n);
 
 /*!
  * Функция добавления строки

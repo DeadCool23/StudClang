@@ -14,17 +14,17 @@ int digit_input(int *digit)
     return OK;
 }
 
+void row_assign(int in_row[], const int row_assign[], size_t n)
+{
+    for (size_t i = 0; i < n; i++)
+        in_row[i] = row_assign[i];
+}
+
 void row_add(int matrix[][M], int add_row[], size_t index, size_t n, size_t m)
 {
     for (size_t i = n + 1; i > index; i--)
-    {
-        for (size_t j = 0; j < m; j++)
-        {
-            matrix[i][j] = matrix[i - 1][j];
-        }
-    }
-    for (size_t j = 0; j < m; j++)
-        matrix[index + 1][j] = add_row[j];
+        row_assign(matrix[i], matrix[i - 1], m);
+    row_assign(matrix[index + 1], add_row, m);
 }
 
 void nums_get(int num, int *last, int *first, int digit)
