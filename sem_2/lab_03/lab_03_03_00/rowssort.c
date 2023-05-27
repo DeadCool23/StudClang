@@ -19,22 +19,22 @@ void rows_swap(int back_row[], int forth_row[], size_t m)
     }
 }
 
-//void rows_bubble_sort(int matrix[][M], size_t n, size_t m)
-//{
-//    bool swapped = true;
-//    for (size_t i = 0; i < n - 1 && swapped; i++)
-//    {
-//        swapped = false;
-//        for (size_t j = 0; j < n - i - 1; j++)
-//        {
-//            if (row_sum(matrix[j], m) > row_sum(matrix[j + 1], m))
-//            {
-//                rows_swap(matrix[j], matrix[j + 1], m);
-//                swapped = true;
-//            }
-//        }
-//    }
-//}
+void rows_bubble_sort(int matrix[][M], size_t n, size_t m)
+{
+    bool swapped = true;
+    for (size_t i = 0; i < n - 1 && swapped; i++)
+    {
+        swapped = false;
+        for (size_t j = 0; j < n - i - 1; j++)
+        {
+            if (row_sum(matrix[j], m) > row_sum(matrix[j + 1], m))
+            {
+                rows_swap(matrix[j], matrix[j + 1], m);
+                swapped = true;
+            }
+        }
+    }
+}
 
 void rows_selection_sort(int matrix[][M], size_t n, size_t m)
 {

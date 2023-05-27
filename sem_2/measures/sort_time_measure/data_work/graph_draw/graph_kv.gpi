@@ -1,0 +1,18 @@
+reset
+
+NO_ANIMATION = 1
+
+set xlabel "Array len"
+set ylabel "Time, μs"
+set xtics font ",4"
+set ytics font ",4"
+set grid
+
+set key left top font ",4"
+
+set size 1
+
+plot 'calced_data/index_sort_sorted_O2.txt' using 1:5:3:4:7 with candlesticks title 'ind\_srt\_02\_KV' ls 1, \
+     'calced_data/index_sort_sorted_O2.txt' using 1:6 with points title 'ind\_srt\_02\_point' ls 1, \
+     'calced_data/index_sort_random_O2.txt' using 1:5:3:4:7 with candlesticks title 'rnd\_srt\_02\_KV' ls 2, \
+     'calced_data/index_sort_random_O2.txt' using 1:6 with points title 'ind\_rnd\_02\_point' ls 2, \

@@ -1,0 +1,16 @@
+reset
+
+NO_ANIMATION = 1
+
+set xlabel "Array len"
+set ylabel "Time, μs"
+set xtics font ",6"
+set ytics font ",6"
+set grid
+
+set key left top font ",4"
+set size 1 
+
+plot 'calced_data/snrestrict_O0.txt' title 'snrestrict\_O0' w lp ls 1,\
+     'calced_data/snrestrict_O3.txt' title 'snrestrict\_O3' w lp ls 2,\
+     'calced_data/snrestrict_Os.txt' title 'snrestrict\_Os' w lp ls 3
