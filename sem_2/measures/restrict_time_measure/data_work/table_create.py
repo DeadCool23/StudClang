@@ -14,7 +14,7 @@ def real_std_err(avg, data, data_size):
 
 
 progs = ["snrestrict", "restrict", "cnrestrict"]
-opts = ["O3"]
+opts = ["O3", "O0", "Os"]
 runs = int(open("../measures/runs.txt").read())
 
 for prog in progs:

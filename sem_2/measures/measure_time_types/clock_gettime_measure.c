@@ -1,6 +1,6 @@
 #include "delay.h"
 #include "clock_gettime_measure.h"
-#include <bits/time.h>
+#include <sys/time.h>
 
 unsigned long long calc_work_time(const struct timespec *beg, const struct timespec *end)
 {

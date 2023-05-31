@@ -7,6 +7,12 @@
 int array[N];
 size_t n;
 
+/**
+ * @brief Сортировка пузырьком с флагом
+ * @details Обращение к элементу по указателю
+ * @param[in] point_beg - указатель начала
+ * @param[in] point_end - указатель конца
+ */
 void bubble_sort(int *point_beg, int *point_end);
 
 int main(int argc, char **argv)
@@ -16,10 +22,18 @@ int main(int argc, char **argv)
     if (sscanf(argv[1], "%zu", &n) != 1)
         return ERR_ARG;
 
+/**
+ * @def RAND
+ * Макрос создания рандомного массива
+ */
 #ifdef RAND
 random_matrix(n, array);
 #endif /* RAND */
 
+/**
+ * @def SORT
+ * Макрос создания отсортированного массива
+ */
 #ifdef SORT
 sorted_matrix(n, array);
 #endif /* SORT */
@@ -33,7 +47,7 @@ sorted_matrix(n, array);
     bubble_sort(point_beg, point_end);
     end = microseconds_now();
     
-    elapsed_time = end - beg;
+    elapsed_time = end - beg; /// Получение времени выполнения
     printf("%llu\n", elapsed_time);
     return OK;
 }

@@ -2,6 +2,7 @@ import os
 import math
 from prettytable import PrettyTable
 
+# Функция поиска относительной стандартной ошибки среднего
 def real_std_err(avg, data, data_size):
     s_sq = 0.0
     for i in range(data_size):
