@@ -4,6 +4,14 @@
 #include "libs/errs.h"
 #include "libs/matrix_generator.h"
 
+/**
+ * @brief Функция подсчета матрицы с = alpha * a + b
+ * @details alpha = 10
+ * @param[in] a - матрица а
+ * @param[in] b - матрица b
+ * @param[out] c - матрица c
+ * @param[in] n - размерность матриц 
+ */
 void matrix_sum(const int (*restrict a)[N], const int (*restrict b)[N], int (*restrict c)[N], size_t n);
 
 matrix_t a, b, c;

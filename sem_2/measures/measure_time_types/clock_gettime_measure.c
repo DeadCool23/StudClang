@@ -13,9 +13,9 @@ unsigned long long measure_by_clock_gettime(int delay_time)
 {
     struct timespec time_beg, time_end;
     
-    clock_gettime(CLOCK_MONOTONIC_RAW, &time_beg);
+    clock_gettime(CLOCK_MONOTONIC, &time_beg);
     delay(delay_time);
-    clock_gettime(CLOCK_MONOTONIC_RAW, &time_end);
+    clock_gettime(CLOCK_MONOTONIC, &time_end);
 
     return calc_work_time(&time_beg, &time_end);
 }

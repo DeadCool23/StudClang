@@ -16,6 +16,7 @@ for prog in progs:
             for length in lens:
                 with open(f"../measures/{prog}/{arr}/{opt}/{length}.txt") as runs_file:
                     times = runs_file.read().split()
+                times.sort() # Сортировка снятых замеров
                 total_sum = 0
                 minn = float("+inf")
                 maxx = float("-inf")
@@ -33,7 +34,6 @@ for prog in progs:
                     minn = min(int(time), minn) # Мин
                     maxx = max(int(time), maxx) # Макс
                 average = total_sum / runs # Среднее значение времени
-                times.sort()
                 data.append((length, average, minn, maxx, times[low_kv], middle, times[high_kv]))
             # Запись данных в файл
             with open(f"calced_data/{prog}_{arr}_{opt}.txt", "w") as data_file:
