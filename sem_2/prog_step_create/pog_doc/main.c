@@ -32,7 +32,9 @@ int main(void)
 {
     int n, m;
     int matrix[N][M];
+    #ifdef TESTING_H
     func_test();
+    #endif //TESTING_H
     printf("Input size of matrix: ");
     if (scanf("%d%d", &n, &m) != 2)
     {

@@ -1,0 +1,4 @@
+Result: 
+hello 3
+world 2
+a 1

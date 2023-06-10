@@ -1,0 +1,2 @@
+ft func_tests/data/neg_24_in.txt func_tests/data/neg_24_in_file.txt dfgh
+

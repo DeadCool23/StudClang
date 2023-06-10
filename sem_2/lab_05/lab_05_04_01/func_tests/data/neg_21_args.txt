@@ -1,0 +1,2 @@
+ft func_tests/data/neg_21_in.txt func_tests/data/neg_21_in_file.txt 
+

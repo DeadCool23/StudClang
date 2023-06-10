@@ -1,0 +1,5 @@
+Result: 
+a 2
+aa 1
+aaa 1
+aaaaa 1

@@ -1,0 +1,2 @@
+New string is empty
+

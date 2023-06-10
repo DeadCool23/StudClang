@@ -1,6 +1,7 @@
 #include "testing.h"
 #include <string.h>
 #include "my_string.h"
+#include <stdio.h>
 
 void diff_sting(size_t *errors)
 {
@@ -76,7 +77,10 @@ void diff_strchr(size_t *errs)
     /// Сравнение работы strchr и my_strchr
     for (size_t i = 0; i < TEST_COUNT; i++)
         if (strchr(str[i], val[i]) != my_strchr(str[i], val[i]))
+        {
+            printf("%s:%c\n", str[i], val[i]);
             ++(*errs);
+        }
 }
 
 void diff_strrchr(size_t *errs)
@@ -93,5 +97,9 @@ void diff_strrchr(size_t *errs)
     /// Сравнение работы strrchr и my_strrchr
     for (size_t i = 0; i < TEST_COUNT; i++)
         if (strrchr(str[i], val[i]) != my_strrchr(str[i], val[i]))
+        {
+            printf("%s:%c\n", str[i], val[i]);
             ++(*errs);
+        }
 }
+

@@ -2,6 +2,9 @@
  * @file testing.h
  * @brief Тестирование всех функций проектра
  */
+
+#ifndef TESTING_H
+#define TESTING_H
 #include <stdbool.h>
 
 /**
@@ -35,3 +38,5 @@ void testing_get_digits(void);
  * @return true/false 
  */
 bool diff_arr(int arr1[], int arr2[]);
+
+#endif //TESTING_H  
