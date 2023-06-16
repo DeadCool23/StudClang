@@ -1,0 +1,18 @@
+reset
+
+NO_ANIMATION = 1
+
+set xlabel "Array len"
+set ylabel "Time, μs"
+set grid
+
+set key left top font ",4"
+set size 1 
+
+plot 'calced_data/adress_sort_random_O0.txt'        title 'adress\_sort\_random\_O0'   w lp ls 1,\
+     'calced_data/adress_sort_random_O2.txt'        title 'adress\_sort\_random\_O2'   w lp ls 2,\
+     'calced_data/index_sort_random_O0.txt'        title 'index\_sort\_random\_O0'   w lp ls 3,\
+     'calced_data/index_sort_random_O2.txt'        title 'index\_sort\_random\_O2'   w lp ls 4,\
+     'calced_data/pointer_sort_random_O0.txt'        title 'pointer\_sort\_random\_O0'   w lp ls 5,\
+     'calced_data/pointer_sort_random_O2.txt'        title 'pointer\_sort\_random\_O2'   w lp ls 6,\
+

@@ -1,0 +1,18 @@
+reset
+
+NO_ANIMATION = 1
+
+set xlabel "Array len"
+set ylabel "Time, μs"
+set grid
+
+set key left top font ",4"
+set size 1 
+
+plot 'calced_data/adress_sort_sorted_O0.txt' using 1:2 with lines title 'adress\_sort\_sorted\_O0' ls 1,\
+     'calced_data/adress_sort_sorted_O2.txt' using 1:2 with lines title 'adress\_sort\_sorted\_O2' ls 2,\
+     'calced_data/index_sort_sorted_O0.txt' using 1:2 with lines title 'index\_sort\_sorted\_O0' ls 3,\
+     'calced_data/index_sort_sorted_O2.txt' using 1:2 with lines title 'index\_sort\_sorted\_O2' ls 4,\
+     'calced_data/pointer_sort_sorted_O0.txt' using 1:2 with lines title 'pointer\_sort\_sorted\_O0' ls 5,\
+     'calced_data/pointer_sort_sorted_O2.txt' using 1:2 with lines title 'pointer\_sort\_sorted\_O2' ls 6,\
+
