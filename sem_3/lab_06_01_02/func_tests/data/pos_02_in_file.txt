@@ -1,0 +1,12 @@
+dog
+1
+2
+cat
+3
+4
+fish
+1
+5
+Break
+2
+5
