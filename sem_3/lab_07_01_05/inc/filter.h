@@ -1,0 +1,27 @@
+#ifndef __FILTER_H__
+#define __FILTER_H__
+
+#include "errs.h"
+
+/**
+ * @brief Функция сложения всех элементов массива
+ *
+ * @param [in] pbeg - начало массива
+ * @param [in] pend - конец массива
+ * @return сумма
+ */
+int sum(const int *pbeg, const int *pend);
+
+/**
+ * @brief Функция фильтрации элементов изначального массива и запись отфильтрованных в новый массив
+ * @details Поиск элементов которые больше суммы последующих элементов
+ *
+ * @param [in] pb_src - указатель на начало исходного массива
+ * @param [in] pe_src - указатель на конец исходного массива
+ * @param [out] pb_dst - указатель на начало нового массива
+ * @param [out] pe_dst - указатель на конец нового массива
+ * @return Код ошибки
+ */
+err_t key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst);
+
+#endif  //__FILTER_H__
