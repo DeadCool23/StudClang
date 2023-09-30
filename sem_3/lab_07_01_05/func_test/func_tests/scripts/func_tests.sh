@@ -5,6 +5,8 @@ fail=1 #Негативный код возврата
 
 pos_count=0 #Кол-во позитивных тестов
 pos_scs=0 #Кол-во пройденных позитивных тестов
+mem_scs=0 #Кол-во пройденных по памяти тестов
+func_scs=0 #Кол-во пройденных функциональных тестов
 
 key=$1 #Ключ -v
 
@@ -18,6 +20,9 @@ fi
 files="func_tests/data/pos_??_in.txt" #Маска входных позитивных данных
 
 for file in $files; do
+    if [ $pos_count -ne 0 ] && [[ "$key" == "-v" ]]; then
+        echo " "
+    fi
     num=$(echo "$file" | grep -o "[0-9]*") #Номер позитивного теста
 
     #Проверка на наличие номера
@@ -53,17 +58,29 @@ for file in $files; do
         fi
         pos_count=$((pos_count + 1)) #Подсчет кол-ва позитивных тестов
         pos_scs=$((pos_scs + 1)) #Подсчет кол-ва пройденных позитивных тестов
-    elif [[ $((exit_code % 2)) -ne 0 ]]; then
-        #Вывод при наличии ключа
-        if [[ "$key" == "-v" ]]; then
-            echo -e "POS TEST pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
+        mem_scs=$((mem_scs + 1))
+        func_scs=$((func_scs + 1))
+    else
+        if [[ $((exit_code % 2)) -eq 0 ]]; then
+            #Вывод при наличии ключа
+            if [[ "$key" == "-v" ]]; then
+                echo -e "POS TEST pos_""$num""_in.txt: \e[1;32mPASSED\e[0m"
+            fi
+            func_scs=$((func_scs + 1))
+        else
+            if [[ "$key" == "-v" ]]; then
+                echo -e "POS TEST pos_""$num""_in.txt: \e[1;32mFAILED\e[0m"
+            fi
         fi
         if [[ $((exit_code % 3)) -eq 0 ]]; then
-            echo -e "MEMORY pos_""$num""_in.txt: \e[1;32mPASSED\e[0m"
+            if [[ "$key" == "-v" ]]; then
+                echo -e "MEMORY pos_""$num""_in.txt: \e[1;32mPASSED\e[0m"
+            fi
+            mem_scs=$((mem_scs + 1))
         else
             echo -e "MEMORY pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
         fi   
-	pos_count=$((pos_count + 1)) #Подсчет кол-ва позитивных тестов
+	    pos_count=$((pos_count + 1)) #Подсчет кол-ва позитивных тестов
     fi
 done
 
@@ -81,6 +98,8 @@ fi
 #Вывод при наличии ключа
 if [[ "$key" == "-v" ]]; then
     echo "----------------------------------------"
+    echo "Tests passed $func_scs of $pos_count"
+    echo "Memory passed $mem_scs of $pos_count"
     if [ -n "$compl_pos" ]; then
         if [ $compl_pos -eq 100 ]; then
             echo -e "\e[1;32m$compl_pos% of positive tests PASSED\e[0m"
@@ -96,9 +115,14 @@ fi
 
 neg_count=0 #Кол-во негативных тестов
 neg_scs=0 #Кол-во пройденных негативных тестов
+mem_scs=0 #Кол-во пройденных по памяти тестов
+func_scs=0 #Кол-во пройденных функциональных тестов
 
 files="func_tests/data/neg_??_in.txt" #Маска входных негативных данных
 for file in $files; do
+    if [ $neg_count -ne 0 ] && [[ "$key" == "-v" ]]; then
+        echo " "
+    fi
     num=$(echo "$file" | grep -o "[0-9]*") #Номер негативного теста
 
     #Проверка на наличие номера
@@ -132,17 +156,29 @@ for file in $files; do
         fi
         neg_count=$((neg_count + 1)) #Подсчет кол-ва негативных тестов
         neg_scs=$((neg_scs + 1)) #Подсчет кол-ва пройденных негативных тестов
-    elif [[ $((exit_code % 2)) -ne 0 ]]; then
-        #Вывод при наличии ключа
-        if [[ "$key" == "-v" ]]; then
-            echo -e "POS TEST pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
+        mem_scs=$((mem_scs + 1))
+        func_scs=$((func_scs + 1))
+    else
+        if [[ $((exit_code % 2)) -eq 0 ]]; then
+            #Вывод при наличии ключа
+            if [[ "$key" == "-v" ]]; then
+                echo -e "POS TEST pos_""$num""_in.txt: \e[1;32mPASSED\e[0m"
+            fi
+            func_scs=$((func_scs + 1))
+        else
+            if [[ "$key" == "-v" ]]; then
+                echo -e "POS TEST pos_""$num""_in.txt: \e[1;32mFAILED\e[0m"
+            fi
         fi
         if [[ $((exit_code % 3)) -eq 0 ]]; then
-            echo -e "MEMORY pos_""$num""_in.txt: \e[1;32mPASSED\e[0m"
+            if [[ "$key" == "-v" ]]; then
+                echo -e "MEMORY pos_""$num""_in.txt: \e[1;32mPASSED\e[0m"
+            fi
+            mem_scs=$((mem_scs + 1))
         else
             echo -e "MEMORY pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
-        fi 
-	neg_count=$((neg_count + 1)) #Подсчет кол-ва негативных тестов
+        fi   
+	    neg_count=$((neg_count + 1)) #Подсчет кол-ва негативных тестов
     fi
 done
 
@@ -159,6 +195,8 @@ fi
 #Вывод при наличии ключа
 if [[ "$key" == "-v" ]]; then
     echo "----------------------------------------"
+    echo "Tests passed $func_scs of $neg_count"
+    echo "Memory passed $mem_scs of $neg_count"
     if [ -n "$compl_neg" ]; then
         if [ $compl_neg -eq 100 ]; then
             echo -e "\e[1;32m$compl_neg% of negative tests PASSED\e[0m"
