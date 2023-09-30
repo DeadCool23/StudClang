@@ -1,4 +1,7 @@
-#include "check_main.h"
+#include <check.h>
+
+#include "check_filter.h"
+#include "check_sort.h"
 
 int main(void) {
     SRunner *runner;
@@ -15,4 +18,3 @@ int main(void) {
 
     return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
-

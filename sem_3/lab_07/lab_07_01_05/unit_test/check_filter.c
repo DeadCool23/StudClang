@@ -2,6 +2,10 @@
 
 #include <stddef.h>
 
+// Тестирование sum
+//--------------------------------------------------------
+
+// Сумма элементов массива из нескольких чисел
 START_TEST(test_sum_of_lot_els_arr)
 {
     int arr[] = {1, 2, 3, 4, 5};
@@ -13,6 +17,7 @@ START_TEST(test_sum_of_lot_els_arr)
 }
 END_TEST
 
+// Сумма элементов массива состоящего из одного элемента
 START_TEST(test_sum_one_el_arr)
 {
     int arr[] = {1};
@@ -41,6 +46,10 @@ Suite* sum_suite(void) {
     return s;
 }
 
+// Тестирование key
+//---------------------------------------------------
+
+// Некорректный укзатель
 START_TEST(test_key_first_arg_null) {
     size_t size = 3;
     int arr[3] = {3, 2, 1};
@@ -55,6 +64,7 @@ START_TEST(test_key_first_arg_null) {
 }
 END_TEST
 
+// Фильтрация одного элемента
 START_TEST(test_key_src_one_elem) {
     size_t size = 1;
     int arr[1] = {3};
@@ -69,6 +79,7 @@ START_TEST(test_key_src_one_elem) {
 }
 END_TEST
 
+// Некорректный укзатель
 START_TEST(test_key_second_arg_null) {
     int arr[3] = {3, 2, 1};
     int *pb = NULL, *pe = NULL;
@@ -82,6 +93,7 @@ START_TEST(test_key_second_arg_null) {
 }
 END_TEST
 
+// Некорректные укзатели
 START_TEST(test_key_pointers_order) {
     size_t size = 3;
     int arr[3] = {3, 2, 1};
@@ -96,6 +108,7 @@ START_TEST(test_key_pointers_order) {
 }
 END_TEST
 
+// Один элемент подходят по усовию
 START_TEST(test_key_one_elem_in_arr) {
     size_t size = 5;
     int arr[5] = {100, 3, 2, 3, 20};
@@ -114,6 +127,7 @@ START_TEST(test_key_one_elem_in_arr) {
 }
 END_TEST
 
+// Несколько элементов подходят по усовию
 START_TEST(test_key_ok) {
     size_t size = 5;
     int arr[5] = {20, 5, 9, 3, 1};

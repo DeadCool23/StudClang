@@ -5,6 +5,7 @@
 // int compare testing
 //------------------------------------------------------------
 
+// Правое число больше
 START_TEST(test_int_compare_positive) {
 int left = 6;
 int right = 9;
@@ -13,6 +14,7 @@ int right = 9;
     ck_assert_int_eq(res, exp_res);
 } END_TEST
 
+// Числа равны
 START_TEST(test_int_compare_zero) {
     int left = 6;
     int right = 6;
@@ -21,6 +23,7 @@ START_TEST(test_int_compare_zero) {
     ck_assert_int_eq(res, exp_res);
 } END_TEST
 
+// Левое число больше
 START_TEST(test_int_compare_negative) {
     int left = 9;
     int right = 6;
@@ -54,6 +57,7 @@ int char_compare(const void *left, const void *right)
     return *(char *)left - *(char *)right;
 }
 
+// Правый символ больше
 START_TEST(test_char_compare_positive) {
     char left = '6';
     char right = '9';
@@ -62,6 +66,7 @@ START_TEST(test_char_compare_positive) {
     ck_assert_int_eq(res, exp_res);
 } END_TEST
 
+// Символы равны
 START_TEST(test_char_compare_zero) {
     char left = '6';
     char right = '6';
@@ -70,6 +75,7 @@ START_TEST(test_char_compare_zero) {
     ck_assert_int_eq(res, exp_res);
 } END_TEST
 
+// Левый символ больше
 START_TEST(test_char_compare_negative) {
     char left = '9';
     char right = '6';
@@ -105,6 +111,7 @@ int double_compare(const void *left, const void *right)
     return *(double *)left > *(double *)right ? 1 : fabs(*(double *)left - *(double *)right) < EPS ? 0 : -1;
 }
 
+// Правое число больше
 START_TEST(test_double_compare_positive) {
     double left = 6;
     double right = 9;
@@ -113,6 +120,7 @@ START_TEST(test_double_compare_positive) {
     ck_assert_int_eq(res, exp_res);
 } END_TEST
 
+// Числа равны
 START_TEST(test_double_compare_zero) {
     double left = 6;
     double right = 6;
@@ -121,6 +129,7 @@ START_TEST(test_double_compare_zero) {
     ck_assert_int_eq(res, exp_res);
 } END_TEST
 
+// Левое число больше
 START_TEST(test_double_compare_negative) {
     double left = 9;
     double right = 6;
@@ -149,6 +158,7 @@ Suite *double_compare_suite(void) {
 // mysort testing
 //--------------------------------------------------------------
 
+// Пустой массив
 START_TEST(test_mysort_empty_array) {
     int a[1];
     int res[1];
@@ -158,6 +168,7 @@ START_TEST(test_mysort_empty_array) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Массив из одного числа
 START_TEST(test_mysort_single_element) {
     int a[] = {1};
     int res[] = {1};
@@ -167,6 +178,7 @@ START_TEST(test_mysort_single_element) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Убывающий массив из двух элеме
 START_TEST(test_mysort_two_els_reverse_sorted_array) {
     int a[] = {2, 1};
     int res[] = {1, 2};
@@ -176,6 +188,7 @@ START_TEST(test_mysort_two_els_reverse_sorted_array) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Возрастающий массив из двух элементов
 START_TEST(test_mysort_two_els_sorted_array) {
     int a[] = {1, 2};
     int res[] = {1, 2};
@@ -185,6 +198,7 @@ START_TEST(test_mysort_two_els_sorted_array) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Возрастающий массив
 START_TEST(test_mysort_sorted_array) {
     int a[] = {1, 2, 3, 4, 5};
     int res[] = {1, 2, 3, 4, 5};
@@ -194,6 +208,7 @@ START_TEST(test_mysort_sorted_array) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Убывающий массив
 START_TEST(test_mysort_reverse_sorted_array) {
     int a[] = {5, 4, 3, 2, 1};
     int res[] = {1, 2, 3, 4, 5};
@@ -203,6 +218,7 @@ START_TEST(test_mysort_reverse_sorted_array) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Случайный массив без повторений
 START_TEST(test_mysort_random_array) {
     int a[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
     int res[] = {1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9};
@@ -212,6 +228,7 @@ START_TEST(test_mysort_random_array) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Случайный массив с повторениями
 START_TEST(test_mysort_random_array_with_repeat) {
     int a[] = {1, 4, 3, 3, 7, 8, 4, 9};
     int res[] = {1, 3, 3, 4, 4, 7, 8, 9};
@@ -221,6 +238,7 @@ START_TEST(test_mysort_random_array_with_repeat) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Случайный массив символов
 START_TEST(test_mysort_random_char_array) {
     char a[] = {1, 4, 3, 3, 7, 8, 4, 9};
     char res[] = {1, 3, 3, 4, 4, 7, 8, 9};
@@ -230,6 +248,7 @@ START_TEST(test_mysort_random_char_array) {
         ck_assert_int_eq(a[i], res[i]);
 } END_TEST
 
+// Случайный массив чисел с плавающей точкой
 START_TEST(test_mysort_random_double_array) {
     double a[] = {1, 4, 3, 3, 7, 8, 4, 9};
     double res[] = {1, 3, 3, 4, 4, 7, 8, 9};
@@ -262,4 +281,3 @@ Suite *mysort_suite(void) {
 
     return s;
 }
-
