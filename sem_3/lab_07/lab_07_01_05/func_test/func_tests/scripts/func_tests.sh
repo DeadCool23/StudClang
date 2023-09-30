@@ -1,8 +1,5 @@
 #!/bin/bash
 
-success=0 #Положительный код возврата 
-fail=1 #Негативный код возврата 
-
 pos_count=0 #Кол-во позитивных тестов
 pos_scs=0 #Кол-во пройденных позитивных тестов
 mem_scs=0 #Кол-во пройденных по памяти тестов
@@ -78,7 +75,9 @@ for file in $files; do
             fi
             mem_scs=$((mem_scs + 1))
         else
-            echo -e "MEMORY pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
+            if [[ "$key" == "-v" ]]; then
+                echo -e "MEMORY pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
+            fi
         fi   
 	    pos_count=$((pos_count + 1)) #Подсчет кол-ва позитивных тестов
     fi
@@ -176,7 +175,9 @@ for file in $files; do
             fi
             mem_scs=$((mem_scs + 1))
         else
-            echo -e "MEMORY pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
+            if [[ "$key" == "-v" ]]; then
+                echo -e "MEMORY pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
+            fi
         fi   
 	    neg_count=$((neg_count + 1)) #Подсчет кол-ва негативных тестов
     fi

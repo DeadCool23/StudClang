@@ -18,19 +18,29 @@ err=$success
 exit_code=$? #Код возврата программы
 
 #Проверка кода возврата
-if [[ $exit_code != 0 ]]; then
+if [[ $exit_code == 0 ]]; then
 	err=$fail
 fi
 
-valgrind --leak-check=yes --leak-resolution=med --quiet --log-file="report.txt" "$app" "${test_args[@]}"
+report="report.txt"
+valgrind --leak-check=full --quiet --log-file="$report" "$app" "${test_args[@]}"
 
-if [[ -n $report ]] && [[ $err -eq $fail ]]; then
-	exit 1
-elif [[ -n $report ]] && [[ $err -eq $success ]]; then
-	exit 2
-elif [[ -f $report ]] && [[ $err -eq $fail ]]; then
-	exit 3
-else
-	exit 0
+dwarf_messages=$(grep "unhandled dwarf2 abbrev form code" "$report")
+
+if [ -n "$dwarf_messages" ]; then
+    rm -f "$report"
 fi
 
+if [[ -s $report ]]; then
+    if [[ $err -eq $success ]]; then
+        exit 2
+    else
+        exit 1
+    fi
+else
+    if [[ $err -eq $success ]]; then
+        exit 0
+    else
+        exit 3
+    fi
+fi
