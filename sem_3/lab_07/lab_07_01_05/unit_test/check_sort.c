@@ -2,7 +2,8 @@
 
 #include <stddef.h>
 
-// int compare testing
+//============================================================
+// int_compare testing
 //------------------------------------------------------------
 
 // Правое число больше
@@ -49,7 +50,8 @@ Suite *int_compare_suite(void) {
     return s;
 }
 
-//char compare testing
+//==============================================================
+//char_compare testing
 //--------------------------------------------------------------
 
 int char_compare(const void *left, const void *right)
@@ -101,8 +103,8 @@ Suite *char_compare_suite(void) {
     return s;
 }
 
-
-//double compare testing
+//==============================================================
+//double_compare testing
 //--------------------------------------------------------------
 
 int double_compare(const void *left, const void *right)
@@ -155,6 +157,7 @@ Suite *double_compare_suite(void) {
     return s;
 }
 
+//==============================================================
 // mysort testing
 //--------------------------------------------------------------
 

@@ -16,8 +16,9 @@ err_t key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
         return ERR_ARR;
 
     size_t count = 0;
+    int total_sum = sum(pb_src, pe_src);
     for (const int *pc_src = pb_src; pc_src < pe_src - 1; pc_src++)
-        if (*pc_src > sum(pc_src + 1, pe_src))
+        if (*pc_src > (total_sum -= *pc_src))
             count++;
 
     if (count == 0)
@@ -29,9 +30,11 @@ err_t key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
     *pe_dst = *pb_dst + count;
 
     size_t i = 0;
+    total_sum = sum(pb_src, pe_src);
     for (const int *pc_src = pb_src; pc_src < pe_src - 1; pc_src++)
-        if (*pc_src > sum(pc_src + 1, pe_src))
+        if (*pc_src > (total_sum -= *pc_src))
             *(*pb_dst + i++) = *pc_src;
 
     return OK;
 }
+
