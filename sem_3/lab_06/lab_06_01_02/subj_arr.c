@@ -10,7 +10,7 @@ bool is_eof(FILE *file)
     if (end == '\n')
     {
         char endd = getc(file);
-        if (end == EOF)
+        if (endd == EOF)
             return true;
         ungetc(endd, file);
     }
