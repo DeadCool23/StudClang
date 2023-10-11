@@ -66,7 +66,7 @@ for file in $files; do
             func_scs=$((func_scs + 1))
         else
             if [[ "$key" == "-v" ]]; then
-                echo -e "POS TEST pos_""$num""_in.txt: \e[1;32mFAILED\e[0m"
+                echo -e "POS TEST pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
             fi
         fi
         if [[ $((exit_code % 3)) -eq 0 ]]; then
@@ -166,7 +166,7 @@ for file in $files; do
             func_scs=$((func_scs + 1))
         else
             if [[ "$key" == "-v" ]]; then
-                echo -e "POS TEST pos_""$num""_in.txt: \e[1;32mFAILED\e[0m"
+                echo -e "POS TEST pos_""$num""_in.txt: \e[1;31mFAILED\e[0m"
             fi
         fi
         if [[ $((exit_code % 3)) -eq 0 ]]; then
