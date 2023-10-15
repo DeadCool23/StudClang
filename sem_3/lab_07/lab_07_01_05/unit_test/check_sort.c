@@ -2,8 +2,9 @@
 
 #include <stddef.h>
 
-//============================================================
-// int_compare testing
+#include "check_arr.h"
+
+// int compare testing
 //------------------------------------------------------------
 
 // Правое число больше
@@ -50,8 +51,7 @@ Suite *int_compare_suite(void) {
     return s;
 }
 
-//==============================================================
-//char_compare testing
+//char compare testing
 //--------------------------------------------------------------
 
 int char_compare(const void *left, const void *right)
@@ -103,8 +103,8 @@ Suite *char_compare_suite(void) {
     return s;
 }
 
-//==============================================================
-//double_compare testing
+
+//double compare testing
 //--------------------------------------------------------------
 
 int double_compare(const void *left, const void *right)
@@ -157,7 +157,6 @@ Suite *double_compare_suite(void) {
     return s;
 }
 
-//==============================================================
 // mysort testing
 //--------------------------------------------------------------
 
@@ -167,8 +166,7 @@ START_TEST(test_mysort_empty_array) {
     int res[1];
     size_t n = 0;
     mysort(a, n, sizeof(a[0]), int_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_arr_eq(a, res, n);
 } END_TEST
 
 // Массив из одного числа
@@ -177,8 +175,7 @@ START_TEST(test_mysort_single_element) {
     int res[] = {1};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), int_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_arr_eq(a, res, n);
 } END_TEST
 
 // Убывающий массив из двух элеме
@@ -187,8 +184,7 @@ START_TEST(test_mysort_two_els_reverse_sorted_array) {
     int res[] = {1, 2};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), int_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_arr_eq(a, res, n);
 } END_TEST
 
 // Возрастающий массив из двух элементов
@@ -197,8 +193,7 @@ START_TEST(test_mysort_two_els_sorted_array) {
     int res[] = {1, 2};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), int_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_arr_eq(a, res, n);
 } END_TEST
 
 // Возрастающий массив
@@ -207,8 +202,7 @@ START_TEST(test_mysort_sorted_array) {
     int res[] = {1, 2, 3, 4, 5};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), int_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_arr_eq(a, res, n);
 } END_TEST
 
 // Убывающий массив
@@ -217,8 +211,7 @@ START_TEST(test_mysort_reverse_sorted_array) {
     int res[] = {1, 2, 3, 4, 5};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), int_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_arr_eq(a, res, n);
 } END_TEST
 
 // Случайный массив без повторений
@@ -227,8 +220,7 @@ START_TEST(test_mysort_random_array) {
     int res[] = {1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), int_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_arr_eq(a, res, n);
 } END_TEST
 
 // Случайный массив с повторениями
@@ -237,8 +229,7 @@ START_TEST(test_mysort_random_array_with_repeat) {
     int res[] = {1, 3, 3, 4, 4, 7, 8, 9};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), int_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_arr_eq(a, res, n);
 } END_TEST
 
 // Случайный массив символов
@@ -247,8 +238,7 @@ START_TEST(test_mysort_random_char_array) {
     char res[] = {1, 3, 3, 4, 4, 7, 8, 9};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), char_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_char_arr_eq(a, res, n);
 } END_TEST
 
 // Случайный массив чисел с плавающей точкой
@@ -257,8 +247,7 @@ START_TEST(test_mysort_random_double_array) {
     double res[] = {1, 3, 3, 4, 4, 7, 8, 9};
     size_t n = sizeof(a) / sizeof(*a);
     mysort(a, n, sizeof(a[0]), double_compare);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_double_eq(a[i], res[i]);
+    ck_assert_double_arr_eq(a, res, n);
 } END_TEST
 
 Suite *mysort_suite(void) {

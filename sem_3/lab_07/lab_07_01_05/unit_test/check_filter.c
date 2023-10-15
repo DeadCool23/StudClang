@@ -1,9 +1,11 @@
 #include "check_filter.h"
 
+#include <check.h>
 #include <stddef.h>
 
-//========================================================
-// sum testing
+#include "check_arr.h"
+
+// Тестирование sum
 //--------------------------------------------------------
 
 // Сумма элементов массива из нескольких чисел
@@ -47,8 +49,7 @@ Suite* sum_suite(void) {
     return s;
 }
 
-//===================================================
-// key testing
+// Тестирование key
 //---------------------------------------------------
 
 // Некорректный укзатель
@@ -111,6 +112,13 @@ START_TEST(test_key_pointers_order) {
 END_TEST
 
 // Один элемент подходят по усовию
+// arr - массив 
+// size - размер массива
+// pb - указатель на начало отфильрованного массива
+// pe - указатель на конец отфильрованного массива
+// a - отфильрованный массив
+// res - предполагаемый результат
+// n - размер отфильрованного массива
 START_TEST(test_key_one_elem_in_arr) {
     size_t size = 5;
     int arr[5] = {100, 3, 2, 3, 20};
@@ -122,14 +130,21 @@ START_TEST(test_key_one_elem_in_arr) {
     int *a = pb;
     int res[] = {100};
     size_t n = (size_t)(pe - pb);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_eq(n, 1);
+    ck_assert_int_arr_eq(res, a, n);
 
     if (!rc) free(pb);
 }
 END_TEST
 
 // Несколько элементов подходят по усовию
+// arr - массив 
+// size - размер массива
+// pb - указатель на начало отфильрованного массива
+// pe - указатель на конец отфильрованного массива
+// a - отфильрованный массив
+// res - предполагаемый результат
+// n - размер отфильрованного массива
 START_TEST(test_key_ok) {
     size_t size = 5;
     int arr[5] = {20, 5, 9, 3, 1};
@@ -141,8 +156,8 @@ START_TEST(test_key_ok) {
     int *a = pb;
     int res[] = {20, 9, 3};
     size_t n = (size_t)(pe - pb);
-    for (size_t i = 0; i < n; i++)
-        ck_assert_int_eq(a[i], res[i]);
+    ck_assert_int_eq(n, 3);
+    ck_assert_int_arr_eq(res, a, n);
 
     if (!rc)
         free(pb);
