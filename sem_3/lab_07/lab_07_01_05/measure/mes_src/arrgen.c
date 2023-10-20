@@ -7,7 +7,7 @@
 void gen_rev_arr(int *arr, size_t n)
 {
     for (ssize_t i = n - 1; i >= 0; i--)
-        arr[i] = i;
+        arr[n - i - 1] = i;
 }
 
 void gen_sort_arr(int *arr, size_t n)
