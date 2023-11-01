@@ -25,6 +25,7 @@ x_cnt y_cnt el_cnt
 
 Запуск: <br>
 `app.exe action mtr_1.txt [mtr_2.txt] res.txt`
+
 Возможные значения action:
 
 1. __a__ — сложение;
