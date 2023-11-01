@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -std=c99 -Wall -Werror -Wpedantic -Wextra -Wvla -Wfloat-equal -Wfloat-conversion
 INC= -I inc
-UNIFLAGS = -lcheck -lm -lsubunit
+UNIFLAGS = -lcheck -lm #-lsubunit
 
 FUNC_TESTING = testing.sh
 TEST_DIR = func_test
