@@ -1,0 +1,1 @@
+k func_tests/data/neg_09_in.txt func_tests/scripts/test_out.txt

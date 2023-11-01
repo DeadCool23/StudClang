@@ -1,0 +1,1 @@
+o func_tests/data/pos_10_in.txt func_tests/data/test_out.txt

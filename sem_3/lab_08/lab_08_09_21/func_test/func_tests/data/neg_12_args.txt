@@ -1,0 +1,1 @@
+a func_tests/data/neg_12_in.txt func_tests/data/neg_12_h_in.txt func_tests/scripts/test_out.txt
