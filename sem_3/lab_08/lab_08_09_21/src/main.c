@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
         err = !err ? matrix_create_ex(argv[3], &matrix_scd) : err;
         err = !err ? matrix_mult(&matrix_fst, &matrix_scd, &matrix_res) : err;
     }
-    else if (argc == 4 && !strcmp(argv[1], "o"))
+    else if (argc == 4 && !strcmp(argv[1], "g"))
     {
         err = matrix_create_ex(argv[2], &matrix_fst);
         err = !err ? gauss(&matrix_fst, &matrix_res) : err;
