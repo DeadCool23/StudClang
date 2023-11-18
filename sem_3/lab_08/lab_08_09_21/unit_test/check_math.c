@@ -1,12 +1,17 @@
 #include "check_math.h"
 
+#include <math.h>
+
 #include "allocate.h"
 #include "check_process.h"
 
-void ck_assert_matrix_double_eq(double **X, double **Y, size_t rows, size_t cols) {
-    for (size_t i = 0; i < rows; i++)
-        for (size_t j = 0; j < cols; j++)
-            ck_assert_double_eq_tol(X[i][j], Y[i][j], EPS);
+int ck_assert_matrix_double_eq(double **X, double **Y, size_t rows, size_t cols) {
+    int diff = 0;
+    for (size_t i = 0; i < rows && !diff; i++)
+        for (size_t j = 0; j < cols && !diff; j++)
+            diff = (fabs(X[i][j] - Y[i][j]) < EPS) ? 0 : 1;
+    
+    return diff;
 }
 
 // Тестирование sum
@@ -99,7 +104,7 @@ START_TEST(sum_of_first_ord_matrices) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, N);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -126,7 +131,7 @@ START_TEST(sum_of_square_matrices) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, N);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -155,7 +160,7 @@ START_TEST(sum_of_rectangular_matrices) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, M);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -183,7 +188,7 @@ START_TEST(sum_of_column_matrices) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -210,7 +215,7 @@ START_TEST(sum_of_row_matrices) {
     ck_assert_int_eq(res.rows, 1);
     ck_assert_int_eq(res.cols, M);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef M
@@ -293,7 +298,7 @@ START_TEST(row_matrix_mult) {
     ck_assert_int_eq(res.rows, 1);
     ck_assert_int_eq(res.cols, N);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -321,7 +326,7 @@ START_TEST(square_matrix_column_mult) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -348,7 +353,7 @@ START_TEST(column_matrix_row_mult) {
     ck_assert_int_eq(res.rows, 1);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -375,7 +380,7 @@ START_TEST(square_matrix_identity_mult) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, N);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -404,7 +409,7 @@ START_TEST(rectangular_matrix_mult_res_square) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, N);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -435,7 +440,7 @@ START_TEST(rectangular_matrix_mult_res_rectengular) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, M);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -463,7 +468,7 @@ START_TEST(first_ord_square_matrix_mult) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, N);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -490,7 +495,7 @@ START_TEST(square_matrix_mult) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, N);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -629,7 +634,7 @@ START_TEST(identity_slau_matrix) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -656,7 +661,7 @@ START_TEST(slau_with_one_ans) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -683,7 +688,7 @@ START_TEST(slau_zero_over_diagonal_with_one_ans) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -710,7 +715,7 @@ START_TEST(slau_zero_below_diagonal_with_one_ans) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -737,7 +742,7 @@ START_TEST(diagonal_slau_with_one_ans) {
     ck_assert_int_eq(res.rows, N);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N
@@ -766,7 +771,7 @@ START_TEST(slau_with_trash_line) {
     ck_assert_int_eq(res.rows, K);
     ck_assert_int_eq(res.cols, 1);
 
-    ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols);
+    ck_assert_int_eq(ck_assert_matrix_double_eq(res.matrix, preal, res.rows, res.cols), 0);
 
     matrix_free(res.matrix, res.rows);
 #undef N

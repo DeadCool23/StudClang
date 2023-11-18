@@ -12,8 +12,11 @@
  * @param [in] Y - вторая матрица
  * @param [in] rows - кол-во строк
  * @param [in] cols - кол-во столбцов
+ * 
+ * @return 0 если матрицы одинаковы
+ * @return 1 иначе
  */
-void ck_assert_matrix_double_eq(double **X, double **Y, size_t rows, size_t cols);
+int ck_assert_matrix_double_eq(double **X, double **Y, size_t rows, size_t cols);
 
 /**
  * @brief Модульное тестирование суммы матриц
