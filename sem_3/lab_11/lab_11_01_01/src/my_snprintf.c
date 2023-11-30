@@ -1,9 +1,8 @@
 #include "my_snprintf.h"
 
-#include <stddef.h>
 #include <stdarg.h>
+#include <stddef.h>
 #include <stdbool.h>
-#include <stdio.h>
 
 typedef enum {
     OCT_BASE = 8,

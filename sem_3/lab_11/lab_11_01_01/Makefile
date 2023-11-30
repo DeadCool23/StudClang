@@ -1,7 +1,7 @@
 CC = gcc
 VALGRIND = valgrind --leak-check=full --quiet
 CFLAGS = -std=gnu99 -Wall -Werror -Wpedantic -Wextra -Wvla -Wfloat-equal -Wfloat-conversion
-UNIFLAGS = -lcheck -lm -lsubunit
+UNIFLAGS = -lcheck -lm #-lsubunit
 INC = -I inc
 
 SRCDIR = src
