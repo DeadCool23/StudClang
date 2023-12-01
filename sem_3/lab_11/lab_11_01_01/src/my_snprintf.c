@@ -113,9 +113,3 @@ int my_snprintf(char *restrict s, size_t maxlen, const char *restrict format, ..
     va_end(args);
     return writed;
 }
-
-// int main(void) {
-//     char buf[100];
-//     my_snprintf(buf, 10, "%d", 100);
-//     printf("%s", buf);
-// }
