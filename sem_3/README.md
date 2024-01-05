@@ -8,3 +8,4 @@ __Лабораторные работы:__
 [___Lab №9: Обработка динамического массива структур с динамическими полями___](https://github.com/nisuev/C_bmstu/tree/main/sem_3/lab_09)<br>
 [___Lab №10: Обработка списков и абстрактных типов данных___](https://github.com/nisuev/C_bmstu/tree/main/sem_3/lab_10)<br>
 [___Lab №11: Функция с переменным числом параметров___](https://github.com/nisuev/C_bmstu/tree/main/sem_3/lab_11)<br>
+[___Lab №12: Библиотеки___](https://github.com/nisuev/C_bmstu/tree/main/sem_3/lab_12)<br>

@@ -1,0 +1,1 @@
+not.so func_tests/data/neg_06_in.txt func_tests/data/test_out.txt f

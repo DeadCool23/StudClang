@@ -1,0 +1,1 @@
+../../dyn_lib_1/libs/libarr.so bcwvywvwvyiw.txt func_tests/data/test_out.txt f
