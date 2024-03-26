@@ -102,4 +102,3 @@ void print(const int a[], size_t a_size)
         printf("%d ", a[i]);
     printf("\n");
 }
-
